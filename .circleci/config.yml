@@ -1,0 +1,70 @@
+---
+version: 2
+anchors:  
+jobs:
+  Installing prerequiste:
+    machine:
+      image: ubuntu-2004:current
+    steps: 
+      - run: 
+          name: Installing prerequiste
+          command: |
+            sudo apt-get update
+            sudo apt install python3-pip
+            sudo apt install git
+            pip3 install ansible
+            git clone https://github.com/manohara1993/circleci.git
+            cd circleci
+            ansible-playbook test.yml
+  # Execution:
+  #   machine:
+  #     image: ubuntu-2004:current
+  #   steps: 
+  #     - run: 
+  #         name: Installing prerequiste
+  #         command: |
+            
+  
+            
+workflows:
+  version: 2
+  build:
+    jobs:
+      - Installing prerequiste
+      # - Execution:
+      #     requires:
+      #       - Installing prerequisteversion: 2
+anchors:  
+jobs:
+  Installing prerequiste:
+    machine:
+      image: ubuntu-2004:current
+    steps: 
+      - run: 
+          name: Installing prerequiste
+          command: |
+            sudo apt-get update
+            sudo apt install python3-pip
+            sudo apt install git
+            pip3 install ansible
+            git clone https://github.com/anandverma88/ansible.git
+            cd ansible
+            ansible-playbook test.yml
+  # Execution:
+  #   machine:
+  #     image: ubuntu-2004:current
+  #   steps: 
+  #     - run: 
+  #         name: Installing prerequiste
+  #         command: |
+            
+  
+            
+workflows:
+  version: 2
+  build:
+    jobs:
+      - Installing prerequiste
+      # - Execution:
+      #     requires:
+      #       - Installing prerequiste
