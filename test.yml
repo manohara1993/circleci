@@ -1,0 +1,15 @@
+---
+- name: Sample playbook
+  hosts: localhost
+  gather_facts:
+  vars: 
+    host1: webserver
+    host2: database
+  tasks:
+  - name: Printing host 1 value
+    debug:
+      msg: "{{host1}}"
+  - name: Printing host 2 value
+    debug:
+      var: host2
+      #msg: "{{host2}}"
